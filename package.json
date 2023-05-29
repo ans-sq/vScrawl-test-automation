@@ -10,7 +10,7 @@
     "report": "cypress run --reporter mochawesome \\ --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true",
     "mergeRep": "mochawesome-merge \"cypress/results/*.json\" > Report-Result.json",
     "html": "marge Report-Result.json",
-    "runTest":"npm run del && npm run report && npm run mergeRep && npm run html"
+    "runTest":"npm run del ; npm run report ; npm run mergeRep ; npm run html"
   },
   "keywords": [
     "cypress",
