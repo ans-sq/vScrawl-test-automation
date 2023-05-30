@@ -30,7 +30,7 @@ pipeline{
                 // Publish the HTML report
                 publishHTML([
                     allowMissing: false,
-                    alwaysLinkToLastBuild: true,d
+                    alwaysLinkToLastBuild: true,
                     keepAll: true,
                     reportDir: 'build',
                     reportFiles: 'Report-Result.html',
