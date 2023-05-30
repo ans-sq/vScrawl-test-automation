@@ -36,22 +36,6 @@ pipeline{
             bat "npm run mergeRep"
             bat "npm run html"
 
-            const errorMessages = [];
-
-            data.results.forEach((suite) => {
-            suite.suites.forEach((testSuite) => {
-                testSuite.tests.forEach((test) => {
-                if (test.state === 'failed' && test.err && test.err.message) {
-                    errorMessages.push(test.err.message);
-                }
-                });
-            });
-            });
-            def message = ''
-            errorMessages.eachWithIndex { errorMessage, index ->
-                message += "Error ${index + 1}: ${errorMessage}\n"
-            }
-    
         }
         success{
              slackSend channel: '#vscrawl-test',
