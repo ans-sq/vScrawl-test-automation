@@ -39,12 +39,24 @@ pipeline{
             //     BUILD_USER = getBuildUser()
             // }
 
-            slackSend channel: '#vscrawl-test',
+           if(currentBuild.currentResult == 'SUCCESS'){
+
+             slackSend channel: '#vscrawl-test',
                         color: COLOR_MAP[currentBuild.currentResult],
-                        message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+                        message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful."
 
             // Upload the file to Slack
             slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
+
+           }
+           else {
+             slackSend channel: '#vscrawl-test',
+                        color: COLOR_MAP[currentBuild.currentResult],
+                        message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed."
+
+            // Upload the file to Slack
+            slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
+           }
     
         }
     }
