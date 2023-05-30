@@ -3,11 +3,11 @@ pipeline{
     agent any
 
     stages{
-        stage('Checkout'){
-           steps{
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ans-sq/vScrawl-test-automation.git']])
-           }
-        }
+        // stage('Checkout'){
+        //    steps{
+        //         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ans-sq/vScrawl-test-automation.git']])
+        //    }
+        // }
         stage('Building'){
             steps{
                 bat "npm install"
