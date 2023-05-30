@@ -2,3 +2,5 @@
 /cypress/results/mochawesome_001.json
 /cypress/screenshots/
 /cypress/videos/
+Report-Result.json
+mochawesome-report\Report-Result.html
