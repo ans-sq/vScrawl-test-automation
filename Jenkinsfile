@@ -40,7 +40,7 @@ pipeline{
 
                 slackSend channel: '#vscrawl-test',
                            color: COLOR_MAP[currentBuild.currentResult],
-                           message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER} by ${BUILD_USER}"
+                           message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}"
 
                 // Upload the file to Slack
                 slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
