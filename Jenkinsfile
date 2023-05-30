@@ -38,20 +38,11 @@ pipeline{
                 //     BUILD_USER = getBuildUser()
                 // }
 
-                // slackSend channel: '#vscrawl-test',
-                //            color: COLOR_MAP[currentBuild.currentResult],
-                //            message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER} by ${BUILD_USER}"
-              
-
-                // Publish the HTML report
-                publishHTML([
-                    allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'mochawesome-report\\Report-Result.html',
-                    reportFiles: 'Report-Result.html',
-                    reportName: 'Report'
-                ])
+                slackSend channel: '#vscrawl-test',
+                           color: COLOR_MAP[currentBuild.currentResult],
+                           message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER} by ${BUILD_USER}",
+                           file: 'mochawesome-report\\Report-Result.html'
+        
         }
     }
 }
