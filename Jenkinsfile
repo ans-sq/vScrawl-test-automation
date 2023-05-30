@@ -12,14 +12,6 @@ pipeline{
 
     agent any
 
-    enviorment{
-        BUILD_USER = ''
-    }
-
-    options{
-        ansiColor('xterm')
-    }
-
     stages{
         // stage('Checkout'){
         //    steps{
@@ -39,8 +31,17 @@ pipeline{
                 bat "npm run html"
             }
         }
-         post {
-            always {
+         stage("Report") {
+            steps{
+
+
+                // script{
+                //     BUILD_USER = getBuildUser()
+                // }
+
+                // slackSend channel: '#vscrawl-test',
+                //            color: COLOR_MAP[currentBuild.currentResult],
+                //            message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER} by ${BUILD_USER}"
               
 
                 // Publish the HTML report
