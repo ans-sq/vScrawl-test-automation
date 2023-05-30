@@ -27,24 +27,25 @@ pipeline{
             steps{
                 bat "npm run del"
                 bat "npm run report"
-                bat "npm run mergeRep"
-                bat "npm run html"
             }
         }
     }
     post{
         always{
-                // script{
-                //     BUILD_USER = getBuildUser()
-                // }
 
-                slackSend channel: '#vscrawl-test',
-                           color: COLOR_MAP[currentBuild.currentResult],
-                           message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+            bat "npm run mergeRep"
+            bat "npm run html"
+            // script{
+            //     BUILD_USER = getBuildUser()
+            // }
 
-                // Upload the file to Slack
-                slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
-        
+            slackSend channel: '#vscrawl-test',
+                        color: COLOR_MAP[currentBuild.currentResult],
+                        message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+
+            // Upload the file to Slack
+            slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
+    
         }
     }
 }
