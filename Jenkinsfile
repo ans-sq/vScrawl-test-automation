@@ -31,10 +31,9 @@ pipeline{
                 bat "npm run html"
             }
         }
-         stage("Report") {
-            steps{
-
-
+    }
+    post{
+        always{
                 // script{
                 //     BUILD_USER = getBuildUser()
                 // }
@@ -53,7 +52,6 @@ pipeline{
                     reportFiles: 'Report-Result.html',
                     reportName: 'Report'
                 ])
-            }
         }
     }
 }
