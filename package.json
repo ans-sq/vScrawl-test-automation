@@ -6,11 +6,11 @@
   "scripts": {
     "test": "test",
     "open": "cypress open",
-    "del" : "node deleteFiles.js",
-    "report": "cypress run --reporter mochawesome \\ --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true",
+    "del": "node deleteFiles.js",
+    "report": "cypress run --spec \"cypress\\e2e\\*\" --reporter mochawesome \\ --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true",
     "mergeRep": "mochawesome-merge \"cypress/results/*.json\" > Report-Result.json",
     "html": "marge Report-Result.json",
-    "runTest":"npm run report ; npm run mergeRep ; npm run html"
+    "runTest": "npm run report ; npm run mergeRep ; npm run html"
   },
   "keywords": [
     "cypress",
