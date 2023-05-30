@@ -35,29 +35,23 @@ pipeline{
 
             bat "npm run mergeRep"
             bat "npm run html"
-            // script{
-            //     BUILD_USER = getBuildUser()
-            // }
-
-           if(currentBuild.currentResult == 'SUCCESS'){
-
+    
+        }
+        success{
              slackSend channel: '#vscrawl-test',
                         color: COLOR_MAP[currentBuild.currentResult],
                         message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful."
 
             // Upload the file to Slack
             slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
-
-           }
-           else {
+        }
+        failure{
              slackSend channel: '#vscrawl-test',
                         color: COLOR_MAP[currentBuild.currentResult],
                         message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed."
 
             // Upload the file to Slack
             slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
-           }
-    
         }
     }
 }
