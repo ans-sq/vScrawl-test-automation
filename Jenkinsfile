@@ -38,8 +38,8 @@ pipeline{
 
             bat '''
                 REM Set Slack API endpoint and access token
-                SET SLACK_API_URL=https://hooks.slack.com/services/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/files.upload
-                SET SLACK_TOKEN=xoxb-2991932861365-5351893201860-JFVT66S0WX1HmJgPYaRE9LiD
+                SET SLACK_API_URL=https://hooks.slack.com/services/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/files.upload
+                SET SLACK_TOKEN=xoxb-2991932861365-5351893201860-EDBIwg9Dr81E5zUfAVJJAXQd
 
                 REM Set channel and message
                 SET CHANNEL=#vscrawl-test
