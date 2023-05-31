@@ -13,11 +13,6 @@ pipeline{
     agent any
 
     stages{
-        // stage('Checkout'){
-        //    steps{
-        //         checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ans-sq/vScrawl-test-automation.git']])
-        //    }
-        // }
         stage('Building'){
             steps{
                 bat "npm install"
@@ -36,45 +31,22 @@ pipeline{
             bat "npm run mergeRep"
             bat "npm run html"
 
-            bat '''
-                REM Set Slack API endpoint and access token
-                SET SLACK_API_URL=https://hooks.slack.com/services/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/files.upload
-                SET SLACK_TOKEN=xoxb-2991932861365-5351893201860-EDBIwg9Dr81E5zUfAVJJAXQd
-
-                REM Set channel and message
-                SET CHANNEL=#vscrawl-test
-                SET MESSAGE=Test message with file attachment and danger level
-
-                REM Set file path
-                SET FILE_PATH=%CD%mochawesome-report\\Report-Result.html
-
-                REM Set danger level (red color)
-                SET DANGER_LEVEL={\"type\":\"section\",\"text\":{\"type\":\"mrkdwn\",\"text\":\"*$MESSAGE*\"},\"color\":\"danger\"}
-
-                REM Send Slack message with file attachment and danger level
-                curl -F file=@"%FILE_PATH%" ^
-                    -F channels="%CHANNEL%" ^
-                    -F initial_comment="%DANGER_LEVEL%" ^
-                    -H "Authorization: Bearer %SLACK_TOKEN%" ^
-                    "%SLACK_API_URL%"
-            '''
-
         }
-        // success{
-        //      slackSend channel: '#vscrawl-test',
-        //                 color: COLOR_MAP[currentBuild.currentResult],
-        //                 message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful."
+        success{
+             slackSend channel: '#vscrawl-test',
+                        color: COLOR_MAP[currentBuild.currentResult],
+                        message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful.\nFIle path for report : ${env.WORKSPACE}mochawesome-report\\Report-Result.html"
 
-        //     // Upload the file to Slack
-        //     slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
-        // }
-        // failure{
-        //      slackSend channel: '#vscrawl-test',
-        //                 color: COLOR_MAP[currentBuild.currentResult],
-        //                 message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed.\n${message}"
+            // Upload the file to Slack
+            slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
+        }
+        failure{
+             slackSend channel: '#vscrawl-test',
+                        color: COLOR_MAP[currentBuild.currentResult],
+                        message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed.\nFIle path for report : ${env.WORKSPACE}mochawesome-report\\Report-Result.html"
 
-        //     // Upload the file to Slack
-        //     slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
-        // }
+            // Upload the file to Slack
+            slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
+        }
     }
 }
