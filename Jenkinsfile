@@ -46,7 +46,7 @@ pipeline{
             MESSAGE="Test message with file attachment and danger level"
 
             # Set file path
-            FILE_PATH="mochawesome-report\\Report-Result.html"
+            FILE_PATH="${env.WORKSPACE}\\mochawesome-report\\Report-Result.html"
 
             # Set danger level (red color)
             DANGER_LEVEL="{\"type\":\"section\",\"text\":{\"type\":\"mrkdwn\",\"text\":\"*$MESSAGE*\"},\"color\":\"good\"}"
