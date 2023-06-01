@@ -27,7 +27,7 @@ describe('Single signer pdf signing', () => {
     cy.get('.mat-primary').click()
 
     //dragging and dropping a signature box on the pdf
-    cy.get('#menu_sire',{ timeout : 5000 }).drag('#pageNo_1 > .page', {
+    cy.get('#menu_signature',{ timeout : 5000 }).drag('#pageNo_1 > .page', {
       //descibes the target location on the pdf where it is being dropped
       target: { x:250,y:290 }
     })
