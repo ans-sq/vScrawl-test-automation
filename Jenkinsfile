@@ -38,7 +38,7 @@ pipeline{
                         message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful.\nFIle path for report : ${env.WORKSPACE}mochawesome-report\\Report-Result.html"
 
             // Upload the file to Slack
-            slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
+            slackUploadFile(channel: '#vscrawl-test', filePath: "${env.WORKSPACE}\\mochawesome-report\\Report-Result.html")
         }
         failure{
              slackSend channel: '#vscrawl-test',
@@ -46,7 +46,7 @@ pipeline{
                         message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed.\nFIle path for report : ${env.WORKSPACE}\\mochawesome-report\\Report-Result.html"
 
             // Upload the file to Slack
-            slackUploadFile(channel: '#vscrawl-test', filePath: 'mochawesome-report\\Report-Result.html')
+            slackUploadFile(channel: '#vscrawl-test', filePath: "${env.WORKSPACE}\\mochawesome-report\\Report-Result.html")
         }
     }
 }
