@@ -1,9 +1,9 @@
 URL = "https://app.vscrawl.com/sign-in"
-email = 'ans.sohail@dictalabs.com'
-password = 'Password123'
+const email = "ans.sohail@dictalabs.com";
+const password = 'Password123';
 describe('Single signer pdf signing', () => {
   it('Signs a pdfs using a single signer', () => {
-    // Visit vScrawl
+    // Visit vScrawl  
     cy.visit(URL)
 
     //enter email

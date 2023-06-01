@@ -1,8 +1,8 @@
 URL = "https://app.vscrawl.com/sign-in"
-email1 = 'notary@dictalabs.com'
-password1 = 'password123'
-email2 = 'ans.sohail@dictalabs.com'
-password2 = 'Password123'
+const email1 = 'notary@dictalabs.com'
+const password1 = 'password123'
+const email2 = 'ans.sohail@dictalabs.com'
+const password2 = 'Password123'
 describe('Multiple signer pdf signing', () =>{
 
     // The testcase for multiple signers pdf signing 
@@ -33,7 +33,7 @@ describe('Multiple signer pdf signing', () =>{
         cy.get('.mat-primary',{ timeout : 15000 }).click()
 
         // secondary signer name
-        cy.get('#mat-input-3',{ timeout : 15000 }).type('Signer 2')
+        cy.get('#mat-input-3',{ timeout : 15000 }).type('Signer')
 
         // secondary signer email
         cy.get('#mat-input-4',{ timeout : 15000 }).type(email2)
