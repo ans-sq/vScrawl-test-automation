@@ -113,7 +113,11 @@ describe('Multiple signer pdf signing', () =>{
   
         cy.get('.fuse-mat-button-large',{ timeout : 15000 }).click()
 
-        cy.get('.mat-paginator-navigation-last',{ timeout : 15000 }).click()
+        cy.get('.mat-paginator-navigation-last',{ timeout : 15000 }).then(($button) =>{
+            if($button.hasClass('active')){
+                $button.click()
+            }
+        })
 
         // dynamically getting the locator for the link to the last document to be signed 
         cy.get('[role^="row"] > .cdk-column-name > a',{ timeout : 15000 }).last().click()
