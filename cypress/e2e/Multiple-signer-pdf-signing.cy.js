@@ -1,4 +1,8 @@
 URL = "https://app.vscrawl.com/sign-in"
+email1 = 'notary@dictalabs.com'
+password1 = 'password123'
+email2 = 'ans.sohail@dictalabs.com'
+password2 = 'Password123'
 describe('Multiple signer pdf signing', () =>{
 
     // The testcase for multiple signers pdf signing 
@@ -8,10 +12,10 @@ describe('Multiple signer pdf signing', () =>{
         cy.visit(URL)
 
         // enter email for first signer
-        cy.get('#email',{ timeout : 15000 }).type('notary@dictalabs.com')
+        cy.get('#email',{ timeout : 15000 }).type(email1)
   
         // enter password for first signer
-        cy.get('#password',{ timeout : 15000 }).type('password123')
+        cy.get('#password',{ timeout : 15000 }).type(password1)
   
         cy.get('.fuse-mat-button-large',{ timeout : 15000 }).click()
   
@@ -29,10 +33,10 @@ describe('Multiple signer pdf signing', () =>{
         cy.get('.mat-primary',{ timeout : 15000 }).click()
 
         // secondary signer name
-        cy.get('#mat-input-3',{ timeout : 15000 }).type('Ans')
+        cy.get('#mat-input-3',{ timeout : 15000 }).type('Signer 2')
 
         // secondary signer email
-        cy.get('#mat-input-4',{ timeout : 15000 }).type('ans.sohail@dictalabs.com')
+        cy.get('#mat-input-4',{ timeout : 15000 }).type(email2)
 
         cy.get('.items-center > .mat-primary',{ timeout : 15000 }).click()
 
@@ -67,7 +71,7 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('input',{ timeout : 15000 }).clear()
 
-        cy.get('input',{ timeout : 15000 }).type('notary')
+        cy.get('input',{ timeout : 15000 }).type('Signer 1')
 
         cy.get('#mat-select-value-3',{ timeout : 15000 }).click()
 
@@ -102,10 +106,10 @@ describe('Multiple signer pdf signing', () =>{
         cy.visit(URL)
 
         // enter email for second signer
-        cy.get('#email',{ timeout : 15000 }).type('ans.sohail@dictalabs.com')
+        cy.get('#email',{ timeout : 15000 }).type(email2)
   
         // enter password for second signer
-        cy.get('#password',{ timeout : 15000 }).type('Password123')
+        cy.get('#password',{ timeout : 15000 }).type(password2)
   
         cy.get('.fuse-mat-button-large',{ timeout : 15000 }).click()
 
@@ -119,7 +123,7 @@ describe('Multiple signer pdf signing', () =>{
         cy.get('input',{ timeout : 15000 }).clear()
 
         // signing the document through second signer
-        cy.get('input',{ timeout : 15000 }).type('Ans')
+        cy.get('input',{ timeout : 15000 }).type('Signer 2')
         
         cy.get('[id^="sign_"]',{ timeout : 15000 }).click()
 

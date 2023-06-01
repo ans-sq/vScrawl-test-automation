@@ -1,14 +1,16 @@
 URL = "https://app.vscrawl.com/sign-in"
+email = 'ans.sohail@dictalabs.com'
+password = 'Password123'
 describe('Single signer pdf signing', () => {
   it('Signs a pdfs using a single signer', () => {
     // Visit vScrawl
     cy.visit(URL)
 
     //enter email
-    cy.get('#email',{ timeout : 15000 }).type('ans.sohail@dictalabs.com')
+    cy.get('#email',{ timeout : 15000 }).type(email)
 
     //enter password
-    cy.get('#password',{ timeout : 15000 }).type('Password123')
+    cy.get('#password',{ timeout : 15000 }).type(password)
 
     cy.get('.fuse-mat-button-large',{ timeout : 15000 }).click()
 
@@ -47,7 +49,7 @@ describe('Single signer pdf signing', () => {
 
     cy.get('input',{ timeout : 15000 }).clear()
 
-    cy.get('input',{ timeout : 15000 }).type('Hello World')
+    cy.get('input',{ timeout : 15000 }).type('Signer')
 
     cy.get('[id^="1"]',{ timeout : 15000 }).then(($object) => {
       // Resize the object
