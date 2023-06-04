@@ -17,7 +17,7 @@ describe('Multiple signer pdf signing', () =>{
         // enter password for first signer
         cy.get('#password',{ timeout : 5000 }).type(password1)
   
-        cy.get('.fuse-mat-button-large',{ timeout : 5000 }).click()
+        cy.get('.fue-mat-button-large',{ timeout : 5000 }).click()
   
         // select to upload a new document
         cy.get('[routerlink="/documents/new"] > .flex-auto',{ timeout : 5000 }).click()

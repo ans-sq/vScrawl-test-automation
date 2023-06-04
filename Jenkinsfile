@@ -45,7 +45,7 @@ pipeline{
 
             // Upload the file to Slack
                 slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report\\Report-Result.html")
-                slackUploadFile(channel: '#vscrawl-test', filePath: "cypress\\screenshots")
+                slackUploadFile(channel: '#vscrawl-test', filePath: "cypress\\screenshots\\Multiple-signer-pdf-signing.cy.js\\Multiple signer pdf signing -- signs a pdf using multiple signers (failed).png")
         }
     }
 }
