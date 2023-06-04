@@ -45,6 +45,7 @@ pipeline{
 
             // Upload the file to Slack
                 slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report\\Report-Result.html")
+                slackUploadFile(channel: '#vscrawl-test', filePath: "cypress\\screenshots")
         }
     }
 }
