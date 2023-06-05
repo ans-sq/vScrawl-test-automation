@@ -35,7 +35,7 @@ pipeline{
                           message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful.\nThe HTML report is attached as follows:"
 
             // Upload the file to Slack
-                slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report\\Report-Result.html")
+                slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report")
         }
         failure{
            
@@ -44,7 +44,7 @@ pipeline{
                           message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed.\nThe HTML report is attached as follows:"
 
             // Upload the file to Slack
-                slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report\\Report-Result.html")
+                slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report")
                 slackUploadFile(channel: '#vscrawl-test', filePath: "cypress\\screenshots\\Multiple-signer-pdf-signing.cy.js\\Multiple signer pdf signing -- signs a pdf using multiple signers (failed).png")
         }
     }
