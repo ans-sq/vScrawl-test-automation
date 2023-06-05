@@ -32,7 +32,7 @@ pipeline{
              
                 slackSend channel: '#vscrawl-test',
                           color: COLOR_MAP[currentBuild.currentResult],
-                          message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful.\nFIle path for report : ${env.WORKSPACE}\\mochawesome-report\\Report-Result.html"
+                          message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests were successful.\nThe HTML report is attached as follows:"
 
             // Upload the file to Slack
                 slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report\\Report-Result.html")
@@ -41,7 +41,7 @@ pipeline{
            
                 slackSend channel: '#vscrawl-test',
                           color: COLOR_MAP[currentBuild.currentResult],
-                          message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed.\nFIle path for report : ${env.WORKSPACE}\\mochawesome-report\\Report-Result.html"
+                          message: "*${currentBuild.currentResult}:* ${env.JOB_NAME} ${env.BUILD_NUMBER}\nThe tests failed.\nThe HTML report is attached as follows:"
 
             // Upload the file to Slack
                 slackUploadFile(channel: '#vscrawl-test', filePath: "mochawesome-report\\Report-Result.html")
