@@ -35,7 +35,7 @@ describe('Single signer pdf signing', () => {
     //dynamically getting the attribute for the signature box locator
     cy.get('[id^="sign_"]',{ timeout : 10000 }).click()
 
-    cy.get('[id^="1"]',{ timeout : 10000 }).then(($object) => {
+    cy.get('[id^="2"]',{ timeout : 10000 }).then(($object) => {
           // Resize the object
           $object.css('width', '300px');
           $object.css('height', '200px');
@@ -51,7 +51,7 @@ describe('Single signer pdf signing', () => {
 
     cy.get('input',{ timeout : 10000 }).type('Signer')
 
-    cy.get('[id^="1"]',{ timeout : 10000 }).then(($object) => {
+    cy.get('[id^="2"]',{ timeout : 10000 }).then(($object) => {
       // Resize the object
       $object.css('width', '200px');
   });
