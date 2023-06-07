@@ -7,7 +7,7 @@
     "test": "test",
     "open": "cypress open",
     "del": "node deleteFiles.js",
-    "report": "cypress run --spec \"var\\lib\\jenkins\\workspace\\vScrawl-App-Dev-Test\\cypress\\e2e\\*\" --reporter mochawesome \\ --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true",
+    "report": "cypress run --spec \"cypress/e2e/*\" --reporter mochawesome \\ --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true",
     "mergeRep": "mochawesome-merge \"cypress/results/*.json\" > Report-Result.json",
     "html": "marge Report-Result.json",
     "runTest": "npm run report ; npm run mergeRep ; npm run html"
