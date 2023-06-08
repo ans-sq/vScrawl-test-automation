@@ -3,7 +3,8 @@ const fs = require('fs');
 const filesToDelete = [
   'cypress/results',
   'Report-Result.json',
-  'node_modules'
+  'node_modules',
+  'mochawesome-report.zip'
   // Add more files to delete if needed
 ];
 
