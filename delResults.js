@@ -1,6 +1,6 @@
 const fs = require('fs-extra');
 
-const directoryPath = 'mochawesome-report';
+const directoryPath = 'cypress/results';
 
 fs.remove(directoryPath, (err) => {
   if (err) {
