@@ -4,7 +4,8 @@ const filesToDelete = [
   'cypress\\results\\mochawesome_001.json',
   'cypress\\results\\mochawesome.json',
   'Report-Result.json',
-  'node_modules'
+  'node_modules',
+  'mochawesome-report'
   // Add more files to delete if needed
 ];
 
