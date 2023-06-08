@@ -94,12 +94,10 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('.mat-stroked-button',{ timeout : 10000 }).click()
 
-        cy.get('.flex-0 > .mt-1',{ timeout : 10000 }).click()
-
         // logging out first signer
         cy.get('user > .mat-focus-indicator',{ timeout : 10000 }).click()
 
-        cy.get(':nth-child(6) > span',{ timeout : 10000 }).click()
+        cy.get('.mat-menu-content > :nth-child(6)',{ timeout : 10000 }).click()
 
         cy.wait(500)
 
