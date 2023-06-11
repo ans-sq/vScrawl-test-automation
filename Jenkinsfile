@@ -8,7 +8,7 @@ pipeline{
     agent any
 
     stages{
-        stage('Sarohy'){
+        stage('Building'){
             steps{
                 bat "npm install"
                 
