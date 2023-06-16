@@ -1,4 +1,4 @@
-URL = "https://dev.app.vscrawl.com:493/"
+URL = "https://dev.app.vscrawl.com/"
 const email1 = 'notary@dictalabs.com'
 const password1 = 'password123'
 const email2 = 'ans.sohail@dictalabs.com'
