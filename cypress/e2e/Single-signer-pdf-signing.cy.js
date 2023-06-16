@@ -1,4 +1,4 @@
-URL = "https://dev.app.vscrawl.com:493/"
+URL = "https://dev.app.vscrawl.com/"
 const email = "ans.sohail@dictalabs.com";
 const password = 'Password123';
 describe('Single signer pdf signing', () => {
