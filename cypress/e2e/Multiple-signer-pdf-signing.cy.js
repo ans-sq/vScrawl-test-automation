@@ -38,12 +38,12 @@ describe('Multiple signer pdf signing', () =>{
         // secondary signer email
         cy.get('#mat-input-4',{ timeout : 10000 }).type(email2)
 
-        cy.get('.items-center > .mat-primary',{ timeout : 10000 }).click()
+        cy.get('.justify-end > .mat-primary > .mat-button-wrapper',{ timeout : 10000 }).click()
 
         //dragging and dropping a signature box on the pdf
         cy.get('#menu_signature',{ timeout : 10000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
-            target: { x:200,y:290 }
+            target: { x:400,y:490 }
         })
 
         //dynamically getting the attribute for the signature box locator
@@ -51,7 +51,7 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('#mat-select-value-3',{ timeout : 10000 }).click()
 
-        cy.get('#mat-option-5 > .mat-option-text',{ timeout : 10000 }).click()
+        cy.get('#mat-option-5',{ timeout : 10000 }).click()
 
         //dragging and dropping a signature box on the pdf
         cy.get('#menu_signature',{ timeout : 10000 }).drag('#pageNo_1 > .page', {
@@ -61,12 +61,12 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('#mat-select-value-3',{ timeout : 10000 }).click()
 
-        cy.get('#mat-option-4 > .mat-option-text',{ timeout : 10000 }).click()
+        cy.get('#mat-option-4',{ timeout : 10000 }).click()
 
         //dragging and dropping a text box on the pdf
         cy.get('#menu_text',{ timeout : 10000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
-            target: { x:200,y:150 }
+            target: { x:200,y:50 }
         })
 
         cy.get('input',{ timeout : 10000 }).clear()
@@ -75,12 +75,12 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('#mat-select-value-3',{ timeout : 10000 }).click()
 
-        cy.get('#mat-option-5 > .mat-option-text',{ timeout : 10000 }).click()
+        cy.get('#mat-option-5',{ timeout : 10000 }).click()
 
         //dragging and dropping a text box on the pdf
         cy.get('#menu_text',{ timeout : 10000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
-            target: { x:350,y:150 }
+            target: { x:250,y:150 }
         })
 
         // dynamically getting the locator of the first signature box to apply the signature
@@ -111,10 +111,8 @@ describe('Multiple signer pdf signing', () =>{
   
         cy.get('.fuse-mat-button-large',{ timeout : 10000 }).click()
 
-        cy.get('.mat-paginator-navigation-last',{ timeout : 10000 }).click()
-
         // dynamically getting the locator for the link to the last document to be signed 
-        cy.get('[role^="row"] > .cdk-column-name > a',{ timeout : 10000 }).last().click()
+        cy.get(':nth-child(1) > .cdk-column-name > a',{ timeout : 10000 }).click()
 
         cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 10000 }).click()
 
