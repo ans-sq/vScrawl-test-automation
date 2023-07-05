@@ -90,9 +90,21 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('[class^="mat-focus-indicator mat-stroked-button mat-button-base ng-star-inserted"]',{ timeout : 10000 }).click()
 
+        cy.get('a',{ timeout : 10000 }).click()
+
+        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 10000 }).should('contains.text', 'Sent')
+
+        cy.get(':nth-child(1) > .cdk-column-name > a',{ timeout : 10000 }).click()
+
+        cy.wait(2000)
+
         cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 10000 }).click()
 
-        cy.get('.mat-stroked-button',{ timeout : 10000 }).click()
+        //cy.get('.mat-stroked-button',{ timeout : 10000 }).click()
+        cy.get('.mat-flat-button',{ timeout : 10000 }).click()
+
+        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 10000 }).should('contains.text', 'Complete')
+
 
         // logging out first signer
         cy.get('user > .mat-focus-indicator',{ timeout : 10000 }).click()
@@ -111,10 +123,12 @@ describe('Multiple signer pdf signing', () =>{
   
         cy.get('.fuse-mat-button-large',{ timeout : 10000 }).click()
 
+        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 10000 }).should('contains.text', 'Pending')
+
         // dynamically getting the locator for the link to the last document to be signed 
         cy.get(':nth-child(1) > .cdk-column-name > a',{ timeout : 10000 }).click()
 
-        // cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 10000 }).click()
+        cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 10000 }).click()
 
         cy.get('input',{ timeout : 10000 }).clear()
 
