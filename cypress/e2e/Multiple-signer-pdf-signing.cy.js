@@ -2,7 +2,7 @@ URL = "https://dev.app.vscrawl.com/"
 const email1 = 'notary@dictalabs.com'
 const password1 = 'password123'
 const email2 = 'ans.sohail@dictalabs.com'
-const password2 = 'Password123'
+const password2 = 'password123'
 describe('Multiple signer pdf signing', () =>{
 
     // The testcase for multiple signers pdf signing 
@@ -114,7 +114,7 @@ describe('Multiple signer pdf signing', () =>{
         // dynamically getting the locator for the link to the last document to be signed 
         cy.get(':nth-child(1) > .cdk-column-name > a',{ timeout : 10000 }).click()
 
-        cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 10000 }).click()
+        // cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 10000 }).click()
 
         cy.get('input',{ timeout : 10000 }).clear()
 

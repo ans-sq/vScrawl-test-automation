@@ -9,7 +9,7 @@ describe('Sign in test suite', () => {
     cy.get('#email',{ timeout : 15000 }).type("ans.sohail@dictalabs.com")
 
     //enter password
-    cy.get('#password',{ timeout : 15000 }).type("Password123")
+    cy.get('#password',{ timeout : 15000 }).type("password123")
 
     cy.get('.fuse-mat-button-large',{ timeout : 15000 }).click()
 
