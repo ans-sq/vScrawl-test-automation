@@ -1,4 +1,4 @@
-URL = "https://dev.app.vscrawl.com/"
+URL = "https://app.vscrawl.com/sign-in"
 
 describe('Sign in test suite', () => {
   it('Sign in success', () => {
