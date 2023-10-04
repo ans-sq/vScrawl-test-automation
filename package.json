@@ -1,0 +1,42 @@
+{
+  "name": "vscrawl-test-automation",
+  "version": "1.0.0",
+  "description": "vScrawl Automation using cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "open": "cypress open",
+    "del": "node deleteFiles.js",
+    "report": "cypress run --spec \"cypress/e2e/*\" --reporter mochawesome \\ --reporter-options reportDir=\"cypress/results\",overwrite=false,html=false,json=true",
+    "mergeRep": "mochawesome-merge \"cypress/results/*.json\" > Report-Result.json",
+    "html": "marge Report-Result.json",
+    "runTest": "npm run report ; npm run mergeRep ; npm run html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ans-sq/vScrawl-test-automation.git"
+  },
+  "keywords": [
+    "cypress",
+    "test",
+    "automation",
+    "vScrawl"
+  ],
+  "author": "Ans Sohail",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ans-sq/vScrawl-test-automation/issues"
+  },
+  "homepage": "https://github.com/ans-sq/vScrawl-test-automation#readme",
+  "devDependencies": {
+    "@4tw/cypress-drag-drop": "^2.2.5",
+    "cypress": "^13.3.0",
+    "fs": "^0.0.1-security",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  },
+  "dependencies": {
+    "cypress-drag-drop": "^1.1.1"
+  }
+}
