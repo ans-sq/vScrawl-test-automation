@@ -2,6 +2,6 @@
 /cypress/screenshots/
 /cypress/videos/
 Report-Result.json
-mochawesome-report\Report-Result.html
+mochawesome-report
 /Jenkinsfile
 node_modules
