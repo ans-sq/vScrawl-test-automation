@@ -69,8 +69,8 @@ describe('Single signer pdf signing', () => {
     //finishing the document
     cy.get('.pl-2 > :nth-child(2) > .mat-focus-indicator',{ timeout : 15000 }).click()
 
-    cy.get('.mat-stroked-button',{ timeout : 20000 }).click()
+    cy.get('.mat-flat-button',{ timeout : 20000 }).click()
 
-    cy.get(':nth-child(3) > .mat-focus-indicator',{ timeout : 15000 }).click()
+    cy.get('tbody > :nth-child(1) > .cdk-column-status').should('contain.text', 'Completed')
   })
 })
