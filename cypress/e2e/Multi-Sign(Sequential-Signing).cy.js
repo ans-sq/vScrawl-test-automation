@@ -1,4 +1,4 @@
-URL = "https://staging.app.vscrawl.com:4233/"
+URL = "https://app.vscrawl.com"
 const email1 = 'notary@dictalabs.com'
 const password1 = 'password123'
 const email2 = 'ans.sohail@dictalabs.com'
