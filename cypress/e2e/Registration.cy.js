@@ -1,4 +1,4 @@
-URL = "https://staging.app.vscrawl.com:4233/"
+URL = "https://app.vscrawl.com/"
 
 describe('Registration Validations check', () => {
     it('Empty fields', () => {
