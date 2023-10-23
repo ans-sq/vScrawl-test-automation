@@ -104,7 +104,7 @@ describe("Check Multi signing", () => {
 
        cy.get('user > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
-       cy.get('.mat-menu-content > :nth-child(6)',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.contains('Sign out',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.wait(500)
 
