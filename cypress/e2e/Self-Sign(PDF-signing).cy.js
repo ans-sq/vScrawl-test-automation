@@ -37,6 +37,11 @@ describe('Single signer pdf signing', () => {
     //dynamically getting the attribute for the signature box locator
     cy.get('[id^="sign_"]',{ timeout : 20000 }).click()
 
+    cy.get('#mat-radio-3 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle',{ timeout : 20000 }).click()
+
+    cy.get('.mat-flat-button',{ timeout : 20000 }).click()
+
+
     //Changing the size of the signature box
     cy.get('[id^="sign_"]',{ timeout : 20000 }).then(($object) => {
           // Resize the object
