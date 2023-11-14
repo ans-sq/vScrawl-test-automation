@@ -38,7 +38,7 @@ describe('Single signer pdf signing', () => {
     cy.get('[id^="sign_"]',{ timeout : 20000 }).click()
 
     //selecting e-signature
-    cy.get('#mat-radio-3 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle',{ timeout : 20000 }).click()
+    cy.get('#mat-radio-3 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle',{ timeout : 20000 }).click({force : true})
 
     cy.get('.mat-flat-button',{ timeout : 20000 }).click()
 
