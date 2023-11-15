@@ -30,7 +30,7 @@ describe("Check Multi signing", () => {
 
        cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click()
 
-       cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get('#mat-checkbox-2 > .mat-checkbox-layout > .mat-checkbox-inner-container',{ timeout : 20000, retryInterval: 3000 }).click({force : true})
 
        // secondary signer name
        cy.get('#mat-input-3',{ timeout : 20000, retryInterval: 3000 }).type('Signer')
@@ -88,7 +88,6 @@ describe("Check Multi signing", () => {
        })
 
        // dynamically getting the locator of the first signature box to apply the signature
-    
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
