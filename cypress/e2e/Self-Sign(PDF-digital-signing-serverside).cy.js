@@ -1,7 +1,7 @@
 URL = "https://staging.app.vscrawl.com:4233/"
 const email = "notary@dictalabs.com";
 const password = 'password123';
-describe('Single signer pdf signing', () => {
+describe('Single signer pdf digital signing', () => {
   it('Signs a pdfs using a single signer', () => {
     // Visit vScrawl 
     cy.visit(URL)
