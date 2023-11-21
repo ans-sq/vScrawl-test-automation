@@ -3,7 +3,7 @@ const email1 = 'notary@dictalabs.com'
 const password1 = 'password123'
 const email2 = 'ans.sohail@dictalabs.com'
 const password2 = 'P@ssword123'
-describe('Multiple signer pdf signing', () =>{
+describe('Multiple signer pdf digital signing', () =>{
 
     // The testcase for multiple signers pdf signing 
     it('signs a pdf using multiple signers', () => {
@@ -29,7 +29,7 @@ describe('Multiple signer pdf signing', () =>{
         // upload the file to be signed
         cy.get('input[type="file"]',{ timeout : 20000, retryInterval: 3000 }).selectFile('TestingDoc.pdf',{force:true})
 
-        cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force : true })
 
         // secondary signer name
         cy.get('#mat-input-3',{ timeout : 20000, retryInterval: 3000 }).type('Notary')
@@ -43,12 +43,13 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('#mat-input-6').type(email2)
 
-        cy.get('.justify-end > .mat-primary > .mat-button-wrapper',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('.justify-end > .mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force: true })
 
         //dragging and dropping a signature box on the pdf
         cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
-            target: { x:400,y:490 }
+            target: { x:400,y:490 },
+            timeout : 20000
         })
 
         //dynamically getting the attribute for the signature box locator
@@ -61,7 +62,8 @@ describe('Multiple signer pdf signing', () =>{
         //dragging and dropping a signature box on the pdf
         cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
-            target: { x:350,y:290 }
+            target: { x:350,y:290 },
+            timeout : 20000
         })
 
         cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -71,7 +73,8 @@ describe('Multiple signer pdf signing', () =>{
         //dragging and dropping a text box on the pdf
         cy.get('#menu_text',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
-            target: { x:200,y:50 }
+            target: { x:200,y:50 },
+            timeout : 20000
         })
 
         cy.get('input',{ timeout : 20000, retryInterval: 3000 }).clear({force:true})
@@ -85,7 +88,8 @@ describe('Multiple signer pdf signing', () =>{
         //dragging and dropping a text box on the pdf
         cy.get('#menu_text',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
-            target: { x:250,y:150 }
+            target: { x:250,y:150 },
+            timeout : 20000
         })
 
         // dynamically getting the locator of the first signature box to apply the signature

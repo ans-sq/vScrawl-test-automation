@@ -3,7 +3,7 @@ const email1 = 'notary@dictalabs.com'
 const password1 = 'password123'
 const email2 = 'ans.sohail@dictalabs.com'
 const password2 = 'P@ssword123'
-describe('Multiple signer pdf digital signing', () =>{
+describe('Multiple signer digital pdf signing', () =>{
 
     // The testcase for multiple signers pdf signing 
     it('signs a pdf using multiple signers', () => {
