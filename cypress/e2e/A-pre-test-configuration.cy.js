@@ -27,9 +27,9 @@ describe("Configurations to run before the actual tests", () => {
  
          cy.get('#mat-radio-4 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle',{ timeout : 20000, retryInterval: 3000 }).click({ force : true })
  
-         cy.get('#mat-input-5',{ timeout : 20000, retryInterval: 3000 }).clear()
+         cy.get('[id^=mat-input]',{ timeout : 20000, retryInterval: 3000 }).clear()
  
-         cy.get('#mat-input-5',{ timeout : 20000, retryInterval: 3000 }).type('Akis2')
+         cy.get('[id^=mat-input]',{ timeout : 20000, retryInterval: 3000 }).type('Akis2')
  
          cy.get(':nth-child(5) > .flex > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
  
