@@ -17,23 +17,23 @@ describe("Configurations to run before the actual tests", () => {
    
          cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
 
-         cy.get('user > .mat-focus-indicator').click()
+         cy.get('user > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
-         cy.contains('Profile').first().click()
+         cy.contains('Profile',{ timeout : 20000, retryInterval: 3000 }).first().click()
  
-         cy.get('.mat-drawer-content > .flex-auto > :nth-child(1) > .mat-focus-indicator').click()
+         cy.get('.mat-drawer-content > .flex-auto > :nth-child(1) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
  
-         cy.get('.flex-col > :nth-child(3)').last().click()
+         cy.get('.flex-col > :nth-child(3)',{ timeout : 20000, retryInterval: 3000 }).click()
  
-         cy.get('#mat-radio-4 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle').click({ force : true })
+         cy.get('#mat-radio-4 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle',{ timeout : 20000, retryInterval: 3000 }).click({ force : true })
  
-         cy.get('#mat-input-5').clear()
+         cy.get('#mat-input-5',{ timeout : 20000, retryInterval: 3000 }).clear()
  
-         cy.get('#mat-input-5').type('Akis2')
+         cy.get('#mat-input-5',{ timeout : 20000, retryInterval: 3000 }).type('Akis2')
  
-         cy.get(':nth-child(5) > .flex > .mat-focus-indicator').click()
+         cy.get(':nth-child(5) > .flex > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
  
-         cy.get(':nth-child(2) > .fuse-vertical-navigation-item-wrapper > .mat-tooltip-trigger').click()
+         cy.get(':nth-child(2) > .fuse-vertical-navigation-item-wrapper > .mat-tooltip-trigger',{ timeout : 20000, retryInterval: 3000 }).click()
     })
     it("Setting up second signer", () => {
 
