@@ -50,7 +50,7 @@ describe("Check Multi signing", () => {
        cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
            //descibes the target location on the pdf where it is being dropped
            target: { x:400,y:490 },
-           timeout: 12000
+           timeout : 20000, retryInterval: 3000
        })
 
        cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -60,7 +60,8 @@ describe("Check Multi signing", () => {
        //dragging and dropping a signature box on the pdf
        cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
            //descibes the target location on the pdf where it is being dropped
-           target: { x:350,y:290 }
+           target: { x:350,y:290 },
+           timeout : 20000, retryInterval: 3000
        })
 
        cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -70,7 +71,8 @@ describe("Check Multi signing", () => {
        //dragging and dropping a text box on the pdf
        cy.get('#menu_text',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
            //descibes the target location on the pdf where it is being dropped
-           target: { x:200,y:50 }
+           target: { x:200,y:50 },
+           timeout : 20000, retryInterval: 3000
        })
 
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).clear({force:true})
@@ -84,7 +86,8 @@ describe("Check Multi signing", () => {
        //dragging and dropping a text box on the pdf
        cy.get('#menu_text',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
            //descibes the target location on the pdf where it is being dropped
-           target: { x:250,y:150 }
+           target: { x:250,y:150 },
+           timeout : 20000, retryInterval: 3000
        })
 
        // dynamically getting the locator of the first signature box to apply the signature
