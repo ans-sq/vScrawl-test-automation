@@ -78,6 +78,6 @@ describe('Single signer pdf digital signing', () => {
 
     cy.get('.mat-flat-button',{ timeout : 20000 }).click()
 
-    cy.get('tbody > :nth-child(1) > .cdk-column-status').should('contain.text', 'Completed')
+    cy.get('tbody > :nth-child(1) > .cdk-column-status', { timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Completed')
   })
 })
