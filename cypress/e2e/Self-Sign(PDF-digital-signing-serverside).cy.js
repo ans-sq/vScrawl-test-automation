@@ -31,16 +31,17 @@ describe('Single signer pdf digital signing', () => {
     //dragging and dropping a signature box on the pdf
     cy.get('#menu_signature',{ timeout : 20000 }).drag('#pageNo_1 > .page', {
       //descibes the target location on the pdf where it is being dropped
-      target: { x:250,y:290 }
+      target: { x:250,y:290 },
+      timeout : 20000, retryInterval: 3000
     })
 
     //dynamically getting the attribute for the signature box locator
-    cy.get('[id^="sign_"]',{ timeout : 20000 }).click()
+    cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
     //selecting e-signature
-    cy.get('#mat-radio-2 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle',{ timeout : 20000 }).click({force : true})
+    cy.get('#mat-radio-2 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle',{ timeout : 20000, retryInterval: 3000 }).click({force : true})
 
-    cy.get('.mat-flat-button',{ timeout : 20000 }).click()
+    cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
 
     //Changing the size of the signature box
     cy.get('[id^="sign_"]',{ timeout : 20000 }).then(($object) => {
@@ -52,7 +53,8 @@ describe('Single signer pdf digital signing', () => {
      //dragging and dropping a text box on the pdf
      cy.get('#menu_text',{ timeout : 20000 }).drag('#pageNo_1 > .page', {
       //descibes the target location on the pdf where it is being dropped
-      target: { x:200,y:150 }
+      target: { x:200,y:150 },
+      timeout : 20000, retryInterval: 3000
     })
 
     cy.get('input',{ timeout : 20000 }).dblclick({force:true})
