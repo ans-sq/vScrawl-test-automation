@@ -3,7 +3,7 @@ const email1 = 'notary@dictalabs.com'
 const password1 = 'password123'
 const email2 = 'ans.sohail@dictalabs.com'
 const password2 = 'P@ssword123'
-describe('Multiple signer pdf digital signing', () =>{
+describe('Multiple signer pdf  signing', () =>{
 
     // The testcase for multiple signers pdf signing 
     it('signs a pdf using multiple signers', () => {
@@ -32,16 +32,18 @@ describe('Multiple signer pdf digital signing', () =>{
         cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force : true })
 
         // secondary signer name
-        cy.get('#mat-input-3',{ timeout : 20000, retryInterval: 3000 }).type('Notary')
+        cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(0).type('Notary')
 
         // secondary signer email
-        cy.get('#mat-input-4',{ timeout : 20000, retryInterval: 3000 }).type(email1)
+        cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(1).type(email1)
+
+        cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('.mt-8').click()
 
-        cy.get('#mat-input-5').type('Signer')
+        cy.get('[id^="mat-input"]').eq(2).type('Signer')
 
-        cy.get('#mat-input-6').type(email2)
+        cy.get('[id^="mat-input"]').eq(3).type(email2)
 
         cy.get('.justify-end > .mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force: true })
 
