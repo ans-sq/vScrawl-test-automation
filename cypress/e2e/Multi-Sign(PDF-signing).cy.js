@@ -29,6 +29,8 @@ describe('Multiple signer pdf  signing', () =>{
         // upload the file to be signed
         cy.get('input[type="file"]',{ timeout : 20000, retryInterval: 3000 }).selectFile('TestingDoc.pdf',{force:true})
 
+        cy.wait(2000)
+
         cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force : true })
 
         // secondary signer name
@@ -37,15 +39,13 @@ describe('Multiple signer pdf  signing', () =>{
         // secondary signer email
         cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(1).type(email1)
 
-        cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container',{ timeout : 20000, retryInterval: 3000 }).click()
-
         cy.get('.mt-8').click()
 
         cy.get('[id^="mat-input"]').eq(2).type('Signer')
 
         cy.get('[id^="mat-input"]').eq(3).type(email2)
 
-        cy.get('.justify-end > .mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force: true })
+        cy.contains('Next',{ timeout : 20000, retryInterval: 3000 }).click()
 
         //dragging and dropping a signature box on the pdf
         cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
