@@ -29,7 +29,9 @@ describe('Multiple signer pdf signing', () =>{
         // upload the file to be signed
         cy.get('input[type="file"]',{ timeout : 20000, retryInterval: 3000 }).selectFile('TestingDoc.pdf',{force:true})
 
-        cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force : true })
+        cy.wait(2000)
+
+        cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click()
 
         // secondary signer name
         cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(0).type('Notary')
