@@ -105,8 +105,6 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.get('a',{ timeout : 20000, retryInterval: 3000 }).click()
-
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
         cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
