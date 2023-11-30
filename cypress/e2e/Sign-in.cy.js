@@ -5,6 +5,8 @@ describe('Sign in test suite', () => {
 
     cy.visit(URL)
 
+    cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
+
     //enter email
     cy.get('#email',{ timeout : 15000 }).type("notary@dictalabs.com")
 
@@ -21,6 +23,8 @@ describe('Sign in test suite', () => {
     
     cy.visit(URL)
 
+    cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
+
     //enter email
     cy.get('#email',{ timeout : 15000 }).type("no.tary@dictalabs.com")
 
@@ -35,6 +39,8 @@ describe('Sign in test suite', () => {
   it('Sign in wrong password', () => {
     
     cy.visit(URL)
+
+    cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
     //enter email
     cy.get('#email',{ timeout : 15000 }).type("notary@dictalabs.com")

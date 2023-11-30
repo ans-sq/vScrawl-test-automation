@@ -8,6 +8,8 @@ describe("Check Multi signing", () => {
       // Visit the webpage or load your application
       cy.visit(URL);
 
+      cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
+
        // enter email for first signer
        cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(email1)
   

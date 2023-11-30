@@ -6,6 +6,8 @@ describe('Single signer pdf digital signing', () => {
     // Visit vScrawl 
     cy.visit(URL)
 
+    cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
+
     //enter email
     cy.get('#email',{ timeout : 20000 }).type(email)
 
