@@ -9,10 +9,10 @@ describe('Single signer pdf digital signing', () => {
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
     //enter email
-    cy.get('#email',{ timeout : 20000 }).type(email)
+    cy.get('#email',{ timeout : 20000 }).type(Cypress.env('email1'))
 
     //enter password
-    cy.get('#password',{ timeout : 20000 }).type(password)
+    cy.get('#password',{ timeout : 20000 }).type(Cypress.env('password1'))
 
     cy.get('.mat-flat-button',{ timeout : 20000 }).click()
 

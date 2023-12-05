@@ -6,3 +6,4 @@ mochawesome-report
 /Jenkinsfile
 node_modules
 cypress/Test
+cypress.env.json

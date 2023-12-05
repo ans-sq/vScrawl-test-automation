@@ -1,6 +1,5 @@
 URL = "https://staging.app.vscrawl.com:4233/"
-const email = "notary@dictalabs.com";
-const password = 'password123';
+
 describe('Single signer pdf signing', () => {
   it('Signs a pdfs using a single signer', () => {
     // Visit vScrawl 
@@ -9,10 +8,10 @@ describe('Single signer pdf signing', () => {
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
     //enter email
-    cy.get('#email',{ timeout : 20000 }).type(email)
+    cy.get('#email',{ timeout : 20000 }).type(Cypress.env('email1'))
 
     //enter password
-    cy.get('#password',{ timeout : 20000 }).type(password)
+    cy.get('#password',{ timeout : 20000 }).type(Cypress.env('password1'))
 
     cy.get('.mat-flat-button',{ timeout : 20000 }).click()
 
