@@ -105,7 +105,7 @@ describe('Multiple signer digital pdf signing', () =>{
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.get('a',{ timeout : 20000, retryInterval: 3000 }).click()
+        // cy.get('a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
@@ -153,6 +153,8 @@ describe('Multiple signer digital pdf signing', () =>{
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+
+        cy.wait(500)
 
         cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
         

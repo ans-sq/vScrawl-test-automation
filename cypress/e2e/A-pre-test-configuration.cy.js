@@ -42,6 +42,8 @@ describe("Configurations to run before the actual tests", () => {
          // visit vScrawl console
          cy.visit(URL)
 
+         cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
+
          // enter email for second signer
          cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(email2)
    
