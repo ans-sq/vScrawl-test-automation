@@ -38,8 +38,6 @@ describe('Multiple signer pdf signing', () =>{
         // secondary signer email
         cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(1).type(Cypress.env('email1'))
 
-        cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container',{ timeout : 20000, retryInterval: 3000 }).click()
-
         cy.get('.mt-8').click()
 
         cy.get('[id^="mat-input"]').eq(2).type('Signer')
