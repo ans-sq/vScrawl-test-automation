@@ -41,7 +41,7 @@ describe("Check Multi signing", () => {
 
        cy.get('#mat-input-5',{ timeout : 20000, retryInterval: 3000 }).type('Notary')
 
-       cy.get('#mat-input-6',{ timeout : 20000, retryInterval: 3000 }).type(email1)
+       cy.get('#mat-input-6',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
 
        cy.get('.justify-end > .mat-primary > .mat-button-wrapper',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -134,6 +134,8 @@ describe("Check Multi signing", () => {
        
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
+       cy.wait(500)
+
        cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -143,7 +145,7 @@ describe("Check Multi signing", () => {
        cy.contains('Sign out',{ timeout : 20000, retryInterval: 3000 }).click()
 
        // enter email for first signer
-       cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(email1)
+       cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
   
        // enter password for first signer
        cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('password1'))
@@ -163,6 +165,8 @@ describe("Check Multi signing", () => {
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).type('Signer 2',{force:true})
        
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
+
+       cy.wait(500)
 
        cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 

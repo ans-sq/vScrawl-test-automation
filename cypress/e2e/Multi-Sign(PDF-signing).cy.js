@@ -145,6 +145,8 @@ describe('Multiple signer pdf signing', () =>{
         
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
+        cy.wait(500)
+
         cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
