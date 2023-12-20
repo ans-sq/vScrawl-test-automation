@@ -29,7 +29,7 @@ describe("Configurations to run before the actual tests", () => {
  
          cy.get('[id^=mat-input]',{ timeout : 20000, retryInterval: 3000 }).type('Akis2')
  
-         cy.get(':nth-child(5) > .flex > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+         cy.get(':nth-child(5) > .flex > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click({force:true})
  
          cy.get(':nth-child(2) > .fuse-vertical-navigation-item-wrapper > .mat-tooltip-trigger',{ timeout : 20000, retryInterval: 3000 }).click()
     })
@@ -62,7 +62,7 @@ describe("Configurations to run before the actual tests", () => {
  
          cy.get('[id^=mat-input]',{ timeout : 20000, retryInterval: 3000 }).type('Akis2')
  
-         cy.get(':nth-child(5) > .flex > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+         cy.get(':nth-child(5) > .flex > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click({force:true})
  
          cy.get(':nth-child(2) > .fuse-vertical-navigation-item-wrapper > .mat-tooltip-trigger',{ timeout : 20000, retryInterval: 3000 }).click()
     })
