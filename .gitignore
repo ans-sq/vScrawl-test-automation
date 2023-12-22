@@ -6,3 +6,5 @@ mochawesome-report
 /Jenkinsfile
 node_modules
 cypress/Test
+cypress/e2e/Register2.cy.js
+cypress/e2e/SendDocuments.cy.js

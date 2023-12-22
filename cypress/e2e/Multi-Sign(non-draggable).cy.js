@@ -1,18 +1,15 @@
-URL = "https://app.vscrawl.com/"
-const email1 = 'notary@dictalabs.com'
-const password1 = 'password123'
-const email2 = 'ans.sohail@dictalabs.com'
-const password2 = 'P@ssword123'
 describe("Check if an element is not draggable", () => {
     it("should not move when dragged", () => {
       // Visit the webpage or load your application
-      cy.visit(URL);
+      cy.visit(Cypress.env('URL'));
+
+      cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
        // enter email for first signer
-       cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(email1)
+       cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
   
        // enter password for first signer
-       cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(password1)
+       cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('password1'))
  
        cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
  
@@ -32,13 +29,13 @@ describe("Check if an element is not draggable", () => {
        cy.get('#mat-input-3',{ timeout : 20000, retryInterval: 3000 }).type('Notary')
 
        // secondary signer email
-       cy.get('#mat-input-4',{ timeout : 20000, retryInterval: 3000 }).type(email1)
+       cy.get('#mat-input-4',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
 
        cy.get('.mt-8').click()
 
        cy.get('#mat-input-5').type('Signer')
 
-       cy.get('#mat-input-6').type(email2)
+       cy.get('#mat-input-6').type(Cypress.env('email2'))
 
        cy.get('.justify-end > .mat-primary > .mat-button-wrapper',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -95,8 +92,6 @@ describe("Check if an element is not draggable", () => {
        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
-
-       cy.get('a',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 

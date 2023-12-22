@@ -1,21 +1,18 @@
-URL = "https://app.vscrawl.com/"
-const email1 = 'notary@dictalabs.com'
-const password1 = 'password123'
-const email2 = 'ans.sohail@dictalabs.com'
-const password2 = 'P@ssword123'
-describe('Multiple signer pdf  signing', () =>{
+describe('Multiple signer pdf signing', () =>{
 
     // The testcase for multiple signers pdf signing 
     it('signs a pdf using multiple signers', () => {
 
         // visit vScrawl console
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
+
+        cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
         // enter email for first signer
-        cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(email1)
+        cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
   
         // enter password for first signer
-        cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(password1)
+        cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('password1'))
   
         cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
   
@@ -31,19 +28,21 @@ describe('Multiple signer pdf  signing', () =>{
 
         cy.wait(2000)
 
-        cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force : true })
+        cy.wait(2000)
+
+        cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click()
 
         // secondary signer name
         cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(0).type('Notary')
 
         // secondary signer email
-        cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(1).type(email1)
+        cy.get('[id^="mat-input"]',{ timeout : 20000, retryInterval: 3000 }).eq(1).type(Cypress.env('email1'))
 
         cy.get('.mt-8').click()
 
         cy.get('[id^="mat-input"]').eq(2).type('Signer')
 
-        cy.get('[id^="mat-input"]').eq(3).type(email2)
+        cy.get('[id^="mat-input"]').eq(3).type(Cypress.env('email2'))
 
         cy.contains('Next',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -51,7 +50,7 @@ describe('Multiple signer pdf  signing', () =>{
         cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
             target: { x:400,y:490 },
-            timeout : 20000, retryInterval: 3000
+            timeout : 20000, retryInterval: 3000, retryInterval: 3000
         })
 
         //dynamically getting the attribute for the signature box locator
@@ -65,7 +64,7 @@ describe('Multiple signer pdf  signing', () =>{
         cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
             target: { x:350,y:290 },
-            timeout : 20000, retryInterval: 3000
+            timeout : 20000, retryInterval: 3000, retryInterval: 3000
         })
 
         cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -91,7 +90,7 @@ describe('Multiple signer pdf  signing', () =>{
         cy.get('#menu_text',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
             target: { x:250,y:150 },
-            timeout : 20000, retryInterval: 3000
+            timeout : 20000, retryInterval: 3000, retryInterval: 3000
         })
 
         // dynamically getting the locator of the first signature box to apply the signature
@@ -100,8 +99,6 @@ describe('Multiple signer pdf  signing', () =>{
         cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
-
-        cy.get('a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
@@ -127,10 +124,10 @@ describe('Multiple signer pdf  signing', () =>{
         cy.visit(URL)
 
         // enter email for second signer
-        cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(email2)
+        cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))
   
         // enter password for second signer
-        cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(password2)
+        cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('password2'))
   
         cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -147,6 +144,8 @@ describe('Multiple signer pdf  signing', () =>{
         cy.get('input',{ timeout : 20000, retryInterval: 3000 }).type('Signer 2',{force:true})
         
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
+
+        cy.wait(500)
 
         cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
