@@ -108,7 +108,7 @@ describe("Check Multi signing", () => {
 
        cy.wait(500)
 
-       cy.visit(URL)
+       cy.visit(cypress.env('URL'))
 
        // enter email for second signer
        cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))

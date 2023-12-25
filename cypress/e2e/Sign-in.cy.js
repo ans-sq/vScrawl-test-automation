@@ -1,3 +1,5 @@
+const cypress = require("cypress")
+
 describe('Sign in test suite', () => {
   it('Sign in success', () => {
 
@@ -19,7 +21,7 @@ describe('Sign in test suite', () => {
 
   it('Sign in wrong email', () => {
     
-    cy.visit(URL)
+    cy.visit(cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -36,7 +38,7 @@ describe('Sign in test suite', () => {
   })
   it('Sign in wrong password', () => {
     
-    cy.visit(URL)
+    cy.visit(cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
