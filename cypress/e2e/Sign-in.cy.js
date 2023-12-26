@@ -21,7 +21,7 @@ describe('Sign in test suite', () => {
 
   it('Sign in wrong email', () => {
     
-    cy.visit(cypress.env('URL'))
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -38,7 +38,7 @@ describe('Sign in test suite', () => {
   })
   it('Sign in wrong password', () => {
     
-    cy.visit(cypress.env('URL'))
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
