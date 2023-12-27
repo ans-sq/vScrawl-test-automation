@@ -1,5 +1,3 @@
-const cypress = require("cypress")
-
 describe('Multiple signer pdf signing', () =>{
 
     // The testcase for multiple signers pdf signing 

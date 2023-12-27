@@ -1,5 +1,3 @@
-const cypress = require("cypress")
-
 describe('Sign in test suite', () => {
   it('Sign in success', () => {
 

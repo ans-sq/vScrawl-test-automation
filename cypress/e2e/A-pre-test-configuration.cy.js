@@ -1,4 +1,4 @@
-const cypress = require("cypress")
+
 
 describe("Configurations to run before the actual tests", () => {
     it("Setting up first signer", () => {
