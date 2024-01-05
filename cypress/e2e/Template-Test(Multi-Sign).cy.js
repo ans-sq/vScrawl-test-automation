@@ -1,12 +1,10 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe('Multi-Sign Template Test', () =>{
 
     // The testcase for multiple signers pdf signing 
     it('Multi-Sign', () => {
 
         // visit vScrawl console
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -131,7 +129,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for second signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))
@@ -169,7 +167,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for first signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
@@ -214,7 +212,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for second signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))
@@ -250,7 +248,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for first signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))

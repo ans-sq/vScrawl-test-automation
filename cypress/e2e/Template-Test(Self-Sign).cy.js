@@ -1,9 +1,7 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe('Self Sign Template Test', () => {
   it('Self Sign', () => {
     // Visit vScrawl 
-    cy.visit(URL)
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
