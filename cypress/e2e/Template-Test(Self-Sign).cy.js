@@ -89,11 +89,11 @@ describe('Self Sign Template Test', () => {
 
     cy.get('user > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
-    cy.contains('Template').click()
+    cy.contains('Template', { timeout : 20000, retryInterval: 3000 }).click()
 
-    cy.get('tbody > :nth-child(1) > .cdk-column-name').should('contain.text', "Automation Self Sign Template")
+    cy.get('tbody > :nth-child(1) > .cdk-column-name', { timeout : 20000, retryInterval: 3000 }).should('contain.text', "Automation Self Sign Template")
 
-    cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .use-button').click()
+    cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .use-button', { timeout : 20000, retryInterval: 3000 }).click()
 
     cy.get('.pl-2 > :nth-child(2) > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 

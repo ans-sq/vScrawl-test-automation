@@ -180,11 +180,11 @@ describe('Multi-Sign Template Test', () =>{
         //Using the Template
         cy.get('user > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.contains('Template').click()
+        cy.contains('Template', { timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.get('tbody > :nth-child(1) > .cdk-column-name').should('contain.text', "Automation Multi-Sign Template")
+        cy.get('tbody > :nth-child(1) > .cdk-column-name', { timeout : 20000, retryInterval: 3000 }).should('contain.text', "Automation Multi-Sign Template")
 
-        cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .use-button').click()
+        cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .use-button', { timeout : 20000, retryInterval: 3000 }).click()
 
         //Sending The document again using templates
         cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -261,7 +261,7 @@ describe('Multi-Sign Template Test', () =>{
         //Using the Template
         cy.get('user > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.contains('Template').click()
+        cy.contains('Template', { timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
