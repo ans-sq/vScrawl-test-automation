@@ -96,7 +96,7 @@ describe("Check Multi signing", () => {
 
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Sent')
 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('.flex-auto > .bg-card',{ timeout : 20000, retryInterval: 3000 }).should('not.be.visible')
 
@@ -121,7 +121,7 @@ describe("Check Multi signing", () => {
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
        // dynamically getting the locator for the link to the last document to be signed 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -153,7 +153,7 @@ describe("Check Multi signing", () => {
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
        // dynamically getting the locator for the link to the last document to be signed 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.wait(1000)
 
@@ -161,6 +161,8 @@ describe("Check Multi signing", () => {
 
        // signing the document through first signer now 
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).type('Signer 2',{force:true})
+
+       cy.wait(500)
        
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
 

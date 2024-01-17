@@ -95,7 +95,7 @@ describe("Check if an element is not draggable", () => {
 
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
   
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).then(($elements) => {
         // Create an array to store initial positions
