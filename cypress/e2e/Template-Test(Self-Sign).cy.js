@@ -14,7 +14,7 @@ describe('Self Sign Template Test', () => {
     cy.get('.mat-flat-button', { timeout : 20000, retryInterval: 3000 }).click()
 
     //select to upload a new document
-    cy.get('.pl-5 > .flex > .mat-focus-indicator > .mat-button-wrapper > .mat-icon', { timeout : 20000, retryInterval: 3000 }).click()
+    cy.get('.grid > .mat-focus-indicator > .mat-button-wrapper', { timeout : 20000, retryInterval: 3000 }).click()
 
     cy.get('button.mat-menu-item',{ timeout : 20000, retryInterval: 3000 }).first().click();
 

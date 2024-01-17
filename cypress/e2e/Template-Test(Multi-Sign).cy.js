@@ -17,7 +17,7 @@ describe('Multi-Sign Template Test', () =>{
         cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
   
         // select to upload a new document
-        cy.get('.pl-5 > .flex > .mat-focus-indicator > .mat-button-wrapper',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('.grid > .mat-focus-indicator > .mat-button-wrapper',{ timeout : 20000, retryInterval: 3000 }).click()
         
         cy.wait(1500)
 
@@ -110,7 +110,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.wait(2000)
 
@@ -142,7 +142,7 @@ describe('Multi-Sign Template Test', () =>{
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
         // dynamically getting the locator for the link to the last document to be signed 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -193,7 +193,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.wait(2000)
 
@@ -225,7 +225,7 @@ describe('Multi-Sign Template Test', () =>{
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
         // dynamically getting the locator for the link to the last document to be signed 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
