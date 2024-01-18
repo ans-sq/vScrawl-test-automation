@@ -98,6 +98,8 @@ describe("Check Multi signing", () => {
 
        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
+       cy.wait(1000)
+
        cy.get('.flex-auto > .bg-card',{ timeout : 20000, retryInterval: 3000 }).should('not.be.visible')
 
        cy.get('div.ng-star-inserted > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Download')

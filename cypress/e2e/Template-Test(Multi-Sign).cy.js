@@ -112,7 +112,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.wait(2000)
+        cy.wait(4000)
 
         cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
