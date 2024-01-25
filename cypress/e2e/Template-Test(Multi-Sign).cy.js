@@ -199,6 +199,8 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(2000)
 
+        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
+
         cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         //cy.get('.mat-stroked-button',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -259,14 +261,30 @@ describe('Multi-Sign Template Test', () =>{
         cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('password1'))
 
         cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
-
-        //Using the Template
-        cy.get('user > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
-
-        cy.contains('Template', { timeout : 20000, retryInterval: 3000 }).click()
-
-        cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
-
-        cy.get('[title="Delete"]', { timeout : 20000, retryInterval: 3000 }).click()
     })
+
+    afterEach(() => {
+        
+            
+        // cy.visit(URL)
+
+        cy.wait(10000)
+
+        // // enter email for first signer
+        // cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'),{force:true})
+
+        // // enter password for first signer
+        // cy.get('#password',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('password1'),{force:true})
+
+        // cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click({force:true})
+
+        cy.visit(URL + 'template-documents', { timeout : 20000, retryInterval: 3000 })
+    
+        cy.wait(10000)
+    
+        cy.get('.button-container > .mat-focus-indicator > .mat-button-wrapper', { timeout : 20000, retryInterval: 3000 }).first().click({force:true})
+    
+        cy.get('[title="Delete"]', { timeout : 20000, retryInterval: 3000 }).click({force:true, multiple:true})
+       
+      })
 })

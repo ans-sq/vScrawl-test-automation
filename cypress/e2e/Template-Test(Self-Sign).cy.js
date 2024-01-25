@@ -97,18 +97,22 @@ describe('Self Sign Template Test', () => {
 
     cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .use-button', { timeout : 20000, retryInterval: 3000 }).click()
 
+    cy.get('[id^="sign_"]', { timeout : 20000, retryInterval: 3000 }).click()
+
     cy.get('.pl-2 > :nth-child(2) > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
     cy.get('.mat-flat-button', { timeout : 20000, retryInterval: 3000 }).click()
 
     cy.get('tbody > :nth-child(1) > .cdk-column-status', { timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Completed')
+  })
 
-    cy.get('user > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
+  afterEach(() => {
+    cy.visit(URL + 'template-documents', { timeout : 20000, retryInterval: 3000 })
 
-    cy.contains('Template', { timeout : 20000, retryInterval: 3000 }).click()
+    cy.wait(10000)
 
-    cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
+    cy.get('.button-container > .mat-focus-indicator > .mat-button-wrapper', { timeout : 20000, retryInterval: 3000 }).click({force:true})
 
-    cy.get('[title="Delete"]', { timeout : 20000, retryInterval: 3000 }).click()
+    cy.get('[title="Delete"]', { timeout : 20000, retryInterval: 3000 }).click({force:true, multiple:true})
   })
 })
