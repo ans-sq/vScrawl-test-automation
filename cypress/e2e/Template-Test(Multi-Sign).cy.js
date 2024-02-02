@@ -54,7 +54,7 @@ describe('Multi-Sign Template Test', () =>{
         //dynamically getting the attribute for the signature box locator
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('#mat-option-5',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -65,7 +65,7 @@ describe('Multi-Sign Template Test', () =>{
             timeout : 20000, retryInterval: 3000
         })
 
-        cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('#mat-option-4',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -80,7 +80,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.get('input',{ timeout : 20000, retryInterval: 3000 }).type('Signer 1',{force:true})
 
-        cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('#mat-option-5',{ timeout : 20000, retryInterval: 3000 }).click()
 

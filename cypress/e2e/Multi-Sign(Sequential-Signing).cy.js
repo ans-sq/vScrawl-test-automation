@@ -50,7 +50,7 @@ describe("Check Multi signing", () => {
            timeout : 20000, retryInterval: 3000
        })
 
-       cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('#mat-option-5',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -61,7 +61,7 @@ describe("Check Multi signing", () => {
            timeout : 20000, retryInterval: 3000
        })
 
-       cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('#mat-option-4',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -76,7 +76,7 @@ describe("Check Multi signing", () => {
 
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).type('Signer 1',{force:true})
 
-       cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('#mat-option-5',{ timeout : 20000, retryInterval: 3000 }).click()
 
