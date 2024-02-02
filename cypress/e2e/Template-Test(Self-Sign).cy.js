@@ -109,7 +109,7 @@ describe('Self Sign Template Test', () => {
 
     cy.wait(10000)
 
-    cy.get('.button-container > .mat-focus-indicator > .mat-button-wrapper', { timeout : 20000, retryInterval: 3000 }).click({force:true})
+    cy.get('.button-container > .mat-focus-indicator > .mat-button-wrapper', { timeout : 20000, retryInterval: 3000 }).first().click({force:true})
 
     cy.get('[title="Delete"]', { timeout : 20000, retryInterval: 3000 }).click({force:true, multiple:true})
   })
