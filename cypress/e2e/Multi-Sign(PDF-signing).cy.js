@@ -96,7 +96,7 @@ describe('Multiple signer pdf signing', () =>{
         // dynamically getting the locator of the first signature box to apply the signature
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
-        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 

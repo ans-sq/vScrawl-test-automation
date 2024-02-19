@@ -94,7 +94,7 @@ describe('Multi-Sign Template Test', () =>{
         // dynamically getting the locator of the first signature box to apply the signature
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
-        cy.get('.pl-2 > :nth-child(7)', { timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(8) > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
         // Saving a new Template 
         cy.get('.mat-menu-content > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
@@ -104,7 +104,7 @@ describe('Multi-Sign Template Test', () =>{
         cy.get('.mat-flat-button', { timeout : 20000, retryInterval: 3000 }).click()
 
         //Sending the Document
-        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -187,7 +187,7 @@ describe('Multi-Sign Template Test', () =>{
         cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .use-button', { timeout : 20000, retryInterval: 3000 }).click()
 
         //Sending The document again using templates
-        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 

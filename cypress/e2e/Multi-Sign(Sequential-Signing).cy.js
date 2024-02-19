@@ -90,7 +90,7 @@ describe("Check Multi signing", () => {
        // dynamically getting the locator of the first signature box to apply the signature
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
-       cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -157,7 +157,7 @@ describe("Check Multi signing", () => {
        // dynamically getting the locator for the link to the last document to be signed 
        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
-       cy.wait(1000)
+       cy.wait(2000)
 
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).clear({force:true})
 
