@@ -1,9 +1,7 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe("Check if an element is not draggable", () => {
     it("should not move when dragged", () => {
       // Visit the webpage or load your application
-      cy.visit(URL);
+      cy.visit(Cypress.env('URL'));
 
       cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -91,13 +89,13 @@ describe("Check if an element is not draggable", () => {
        // dynamically getting the locator of the first signature box to apply the signature
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
-       cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
   
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).then(($elements) => {
         // Create an array to store initial positions

@@ -1,9 +1,7 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe('Sign in test suite', () => {
   it('Sign in success', () => {
 
-    cy.visit(URL)
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -21,7 +19,7 @@ describe('Sign in test suite', () => {
 
   it('Sign in wrong email', () => {
     
-    cy.visit(URL)
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -38,7 +36,7 @@ describe('Sign in test suite', () => {
   })
   it('Sign in wrong password', () => {
     
-    cy.visit(URL)
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 

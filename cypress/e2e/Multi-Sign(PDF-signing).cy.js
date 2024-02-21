@@ -1,12 +1,10 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe('Multiple signer pdf signing', () =>{
 
     // The testcase for multiple signers pdf signing 
     it('signs a pdf using multiple signers', () => {
 
         // visit vScrawl console
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -30,6 +28,8 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.wait(2000)
 
+        cy.wait(2000)
+
         cy.get('.mat-primary',{ timeout : 20000, retryInterval: 3000 }).click()
 
         // secondary signer name
@@ -44,13 +44,13 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.get('[id^="mat-input"]').eq(3).type(Cypress.env('email2'))
 
-        cy.get('.justify-end > .mat-primary',{ timeout : 20000, retryInterval: 3000 }).click({ force: true })
+        cy.contains('Next',{ timeout : 20000, retryInterval: 3000 }).click()
 
         //dragging and dropping a signature box on the pdf
         cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
             target: { x:400,y:490 },
-            timeout : 20000, retryInterval: 3000
+            timeout : 20000, retryInterval: 3000, retryInterval: 3000
         })
 
         //dynamically getting the attribute for the signature box locator
@@ -64,7 +64,7 @@ describe('Multiple signer pdf signing', () =>{
         cy.get('#menu_signature',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
             target: { x:350,y:290 },
-            timeout : 20000, retryInterval: 3000
+            timeout : 20000, retryInterval: 3000, retryInterval: 3000
         })
 
         cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -90,21 +90,21 @@ describe('Multiple signer pdf signing', () =>{
         cy.get('#menu_text',{ timeout : 20000, retryInterval: 3000 }).drag('#pageNo_1 > .page', {
             //descibes the target location on the pdf where it is being dropped
             target: { x:250,y:150 },
-            timeout : 20000, retryInterval: 3000
+            timeout : 20000, retryInterval: 3000, retryInterval: 3000
         })
 
         // dynamically getting the locator of the first signature box to apply the signature
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
-        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.wait(2000)
+        cy.wait(4000)
 
         cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -121,7 +121,7 @@ describe('Multiple signer pdf signing', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for second signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))
@@ -134,7 +134,7 @@ describe('Multiple signer pdf signing', () =>{
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
         // dynamically getting the locator for the link to the last document to be signed 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 

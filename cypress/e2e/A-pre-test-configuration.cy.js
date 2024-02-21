@@ -1,9 +1,9 @@
-URL = "https://staging.app.vscrawl.com:4233/"
+
 
 describe("Configurations to run before the actual tests", () => {
     it("Setting up first signer", () => {
          // visit vScrawl console
-         cy.visit(URL)
+         cy.visit(Cypress.env('URL'))
 
          cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -36,7 +36,7 @@ describe("Configurations to run before the actual tests", () => {
     it("Setting up second signer", () => {
 
          // visit vScrawl console
-         cy.visit(URL)
+         cy.visit(Cypress.env('URL'))
 
          cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 

@@ -1,10 +1,7 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-const email = "notary@dictalabs.com";
-const password = 'password123';
 describe('Single signer pdf digital signing', () => {
   it('Signs a pdfs using a single signer', () => {
     // Visit vScrawl 
-    cy.visit(URL)
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -34,6 +31,7 @@ describe('Single signer pdf digital signing', () => {
     cy.get('#menu_signature',{ timeout : 20000 }).drag('#pageNo_1 > .page', {
       //descibes the target location on the pdf where it is being dropped
       target: { x:250,y:290 },
+      timeout : 20000, retryInterval: 3000,
       timeout : 20000, retryInterval: 3000
     })
 
@@ -56,6 +54,7 @@ describe('Single signer pdf digital signing', () => {
      cy.get('#menu_text',{ timeout : 20000 }).drag('#pageNo_1 > .page', {
       //descibes the target location on the pdf where it is being dropped
       target: { x:200,y:150 },
+      timeout : 20000, retryInterval: 3000,
       timeout : 20000, retryInterval: 3000
     })
 
@@ -80,6 +79,6 @@ describe('Single signer pdf digital signing', () => {
 
     cy.get('.mat-flat-button',{ timeout : 20000 }).click()
 
-    cy.get('tbody > :nth-child(1) > .cdk-column-status', { timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Completed')
+    cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }, { timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Completed')
   })
 })

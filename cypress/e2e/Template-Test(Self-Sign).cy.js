@@ -1,9 +1,7 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe('Self Sign Template Test', () => {
   it('Self Sign', () => {
     // Visit vScrawl 
-    cy.visit(URL)
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -107,11 +105,11 @@ describe('Self Sign Template Test', () => {
   })
 
   afterEach(() => {
-    cy.visit(URL + 'template-documents', { timeout : 20000, retryInterval: 3000 })
+    cy.visit(Cypress.env('URL') + 'template-documents', { timeout : 20000, retryInterval: 3000 })
 
     cy.wait(10000)
 
-    cy.get('.button-container > .mat-focus-indicator > .mat-button-wrapper', { timeout : 20000, retryInterval: 3000 }).click({force:true})
+    cy.get('.button-container > .mat-focus-indicator > .mat-button-wrapper', { timeout : 20000, retryInterval: 3000 }).first().click({force:true})
 
     cy.get('[title="Delete"]', { timeout : 20000, retryInterval: 3000 }).click({force:true, multiple:true})
   })

@@ -1,9 +1,7 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe("Check Multi signing", () => {
     it("Sequential Signing", () => {
       // Visit the webpage or load your application
-      cy.visit(URL);
+      cy.visit(Cypress.env('URL'));
 
       cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -52,7 +50,7 @@ describe("Check Multi signing", () => {
            timeout : 20000, retryInterval: 3000
        })
 
-       cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('#mat-option-5',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -63,7 +61,7 @@ describe("Check Multi signing", () => {
            timeout : 20000, retryInterval: 3000
        })
 
-       cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('#mat-option-4',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -78,7 +76,7 @@ describe("Check Multi signing", () => {
 
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).type('Signer 1',{force:true})
 
-       cy.get('#mat-select-value-3',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get('[id^="mat-select-value"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('#mat-option-5',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -92,13 +90,15 @@ describe("Check Multi signing", () => {
        // dynamically getting the locator of the first signature box to apply the signature
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
-       cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Sent')
 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
+
+       cy.wait(1000)
 
        cy.get('.flex-auto > .bg-card',{ timeout : 20000, retryInterval: 3000 }).should('not.be.visible')
 
@@ -110,7 +110,7 @@ describe("Check Multi signing", () => {
 
        cy.wait(500)
 
-       cy.visit(URL)
+       cy.visit(Cypress.env('URL'))
 
        // enter email for second signer
        cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))
@@ -123,7 +123,7 @@ describe("Check Multi signing", () => {
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
        // dynamically getting the locator for the link to the last document to be signed 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
        cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -155,14 +155,16 @@ describe("Check Multi signing", () => {
        cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
        // dynamically getting the locator for the link to the last document to be signed 
-       cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+       cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
-       cy.wait(1000)
+       cy.wait(2000)
 
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).clear({force:true})
 
        // signing the document through first signer now 
        cy.get('input',{ timeout : 20000, retryInterval: 3000 }).type('Signer 2',{force:true})
+
+       cy.wait(500)
        
        cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).click()
 

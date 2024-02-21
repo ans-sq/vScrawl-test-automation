@@ -1,12 +1,10 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe('Multi-Sign Template Test', () =>{
 
     // The testcase for multiple signers pdf signing 
     it('Multi-Sign', () => {
 
         // visit vScrawl console
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -96,7 +94,7 @@ describe('Multi-Sign Template Test', () =>{
         // dynamically getting the locator of the first signature box to apply the signature
         cy.get('[id^="sign_"]',{ timeout : 20000, retryInterval: 3000 }).first().click()
 
-        cy.get('.pl-2 > :nth-child(7)', { timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(8) > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
         // Saving a new Template 
         cy.get('.mat-menu-content > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
@@ -105,18 +103,20 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.get('.mat-flat-button', { timeout : 20000, retryInterval: 3000 }).click()
 
+        cy.wait(1000)
+
         //Sending the Document
-        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.wait(2000)
+        // cy.wait(3000)
 
-        cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('.items-center > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Finish').click()
 
         //cy.get('.mat-stroked-button',{ timeout : 20000, retryInterval: 3000 }).click()
         cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
@@ -131,7 +131,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for second signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))
@@ -144,7 +144,7 @@ describe('Multi-Sign Template Test', () =>{
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
         // dynamically getting the locator for the link to the last document to be signed 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -169,7 +169,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for first signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
@@ -189,13 +189,13 @@ describe('Multi-Sign Template Test', () =>{
         cy.get(':nth-child(1) > .cdk-column-Options > .button-container > .use-button', { timeout : 20000, retryInterval: 3000 }).click()
 
         //Sending The document again using templates
-        cy.get('.pl-2 > :nth-child(4) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(5) > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
-        cy.get('[class="mat-focus-indicator mat-flat-button mat-button-base mat-primary ng-star-inserted"]',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.wait(2000)
 
@@ -216,7 +216,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for second signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email2'))
@@ -229,7 +229,7 @@ describe('Multi-Sign Template Test', () =>{
         cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }).should('contains.text', 'Pending')
 
         // dynamically getting the locator for the link to the last document to be signed 
-        cy.get(':nth-child(1) > .cdk-column-fileName > a',{ timeout : 20000, retryInterval: 3000 }).click()
+        cy.get(':nth-child(1) > .truncate-cell > a',{ timeout : 20000, retryInterval: 3000 }).click()
 
         cy.get(':nth-child(2) > .flex > div > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -252,7 +252,7 @@ describe('Multi-Sign Template Test', () =>{
 
         cy.wait(500)
 
-        cy.visit(URL)
+        cy.visit(Cypress.env('URL'))
 
         // enter email for first signer
         cy.get('#email',{ timeout : 20000, retryInterval: 3000 }).type(Cypress.env('email1'))
@@ -278,7 +278,7 @@ describe('Multi-Sign Template Test', () =>{
 
         // cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click({force:true})
 
-        cy.visit(URL + 'template-documents', { timeout : 20000, retryInterval: 3000 })
+        cy.visit(Cypress.env('URL') + 'template-documents', { timeout : 20000, retryInterval: 3000 })
     
         cy.wait(10000)
     

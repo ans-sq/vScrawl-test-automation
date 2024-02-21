@@ -1,9 +1,7 @@
-URL = "https://staging.app.vscrawl.com:4233/"
-
 describe('Single signer pdf signing', () => {
   it('Signs a pdfs using a single signer', () => {
     // Visit vScrawl 
-    cy.visit(URL)
+    cy.visit(Cypress.env('URL'))
 
     cy.get('.cc-allow',{ timeout : 20000, retryInterval: 3000 }).click()
 
@@ -33,7 +31,7 @@ describe('Single signer pdf signing', () => {
     cy.get('#menu_signature',{ timeout : 20000 }).drag('#pageNo_1 > .page', {
       //descibes the target location on the pdf where it is being dropped
       target: { x:250,y:290 },
-      timeout : 20000, retryInterval: 3000
+      timeout : 20000, retryInterval: 3000, retryInterval: 3000
     })
 
     //dynamically getting the attribute for the signature box locator
@@ -55,7 +53,7 @@ describe('Single signer pdf signing', () => {
      cy.get('#menu_text',{ timeout : 20000 }).drag('#pageNo_1 > .page', {
       //descibes the target location on the pdf where it is being dropped
       target: { x:200,y:150 },
-      timeout : 20000, retryInterval: 3000
+      timeout : 20000, retryInterval: 3000, retryInterval: 3000
     })
 
     cy.get('input',{ timeout : 20000 }).dblclick({force:true})
@@ -75,10 +73,10 @@ describe('Single signer pdf signing', () => {
   });
 
     //finishing the document
-    cy.get('.pl-2 > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000 }).click()
+    cy.get('.pl-2 > :nth-child(2) > .mat-focus-indicator',{ timeout : 20000, retryInterval: 3000 }).click()
 
-    cy.get('.mat-flat-button',{ timeout : 20000 }).click()
+    cy.get('.mat-flat-button',{ timeout : 20000, retryInterval: 3000 }).click()
 
-    cy.get('tbody > :nth-child(1) > .cdk-column-status', { timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Completed')
+    cy.get('tbody > :nth-child(1) > .cdk-column-status',{ timeout : 20000, retryInterval: 3000 }, { timeout : 20000, retryInterval: 3000 }).should('contain.text', 'Completed')
   })
 })
