@@ -72,7 +72,7 @@ describe('Self Sign Template Test', () => {
       $object.css('width', '200px');
     });
 
-    cy.get('.pl-2 > :nth-child(7)', { timeout : 20000, retryInterval: 3000 }).click()
+    cy.get(':nth-child(8) > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
     cy.get('.mat-menu-content > .mat-focus-indicator', { timeout : 20000, retryInterval: 3000 }).click()
 
